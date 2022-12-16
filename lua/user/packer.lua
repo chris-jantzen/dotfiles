@@ -67,4 +67,33 @@ return require('packer').startup(function(use)
             require('user.hop').config()
         end
     }
+    use "lukas-reineke/indent-blankline.nvim"
+
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
+
+    use {
+        "karb94/neoscroll.nvim",
+        config = function()
+            require("neoscroll").setup {
+                easing_function = "quadratic",
+                hide_cursor = true,
+                mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb' }
+            }
+        end,
+        event = "BufRead",
+    }
+
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("user.todo_comments").config()
+        end,
+        event = "BufRead",
+    }
+
+    use { "tpope/vim-surround" }
 end)
