@@ -80,7 +80,8 @@ return require('packer').startup(function(use)
             require("neoscroll").setup {
                 easing_function = "quadratic",
                 hide_cursor = true,
-                mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb' }
+                mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>', '<C-y>','zt', 'zz', 'zb' },
+                use_local_scrolloff = true
             }
         end,
         event = "BufRead",
@@ -96,4 +97,9 @@ return require('packer').startup(function(use)
     }
 
     use { "tpope/vim-surround" }
+
+    -- use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    --     require("toggleterm").setup()
+    -- end}
 end)
+
